@@ -1,36 +1,69 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# E-Commerce Platform with Inventory Management
+## Overview
+The E-Commerce Platform with Inventory Management is a full-featured online store application built using modern web technologies. This platform allows users to browse products, add items to their shopping cart, and make secure purchases. Administrators have access to an intuitive dashboard for managing product listings, categories, inventory levels, and orders. The application leverages TypeScript, React, Next.js, Redux Toolkit, MySQL (managed with Knex.js), and Tailwind CSS, ensuring a robust, scalable, and responsive user experience. Deployed on Vercel, the platform is optimized for performance and reliability.
+## Features
+### User Features:
 
-## Getting Started
+1. User Authentication:
+- Register and log in securely with JWT-based authentication.
+ Manage user profiles and view order history.
 
-First, run the development server:
+2. Product Browsing:
+- Browse a wide range of products categorized for easy navigation.
+- Search and filter products based on various criteria (e.g., category, price).
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+3. Shopping Cart:
+- Add, remove, and update product quantities in the shopping cart.
+- Persistent cart state using Redux and local storage.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+4. Checkout Process:
+- Secure checkout with order summary and payment integration (optional).
+- Receive order confirmation and track order status.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+5. Order Management:
+- View detailed order history with status updates.
+- Receive notifications on order processing stages.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+6. Reviews and Ratings:
+- Leave reviews and ratings for purchased products.
+- View average ratings and individual reviews on product pages.
+  
+### Admin Features
+1. Product Management:
+- Add, edit, and delete products with ease.
+- Upload and manage product images using Cloudinary integration.
+- 
+2. Category Management:
+-Create and organize product categories for better navigation.
 
-## Learn More
+3. Inventory Management:
+- Monitor and update stock levels to prevent overselling.
+- Receive alerts on low inventory levels.
+  
+4. Order Management:
+- View and manage all orders from users.
+- Update order statuses (e.g., pending, shipped, delivered).
 
-To learn more about Next.js, take a look at the following resources:
+## Tech Stack
+### Frontend:
+- TypeScript
+- React
+- Next.js
+- Redux Toolkit
+- React-Redux
+- Tailwind CSS
+### Backend:
+- Next.js API Routes
+- TypeScript
+- MySQL
+- Knex.js
+### Database Hosting:
+- PlanetScale (Free Tier)
+### Deployment:
+- Vercel
+### Version Control:
+- GitHub
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Demo
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Instalation
