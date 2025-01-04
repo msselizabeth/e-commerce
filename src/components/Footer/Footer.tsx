@@ -20,7 +20,7 @@ const Footer = () => {
           </p>
         </div>
         <div className="flex flex-wrap gap-x-12 gap-y-5 mt-4 md:mt-0 md:flex-row lg:gap-20 xl:gap-26">
-          <div className="w-[calc(100%/2-2rem)] md:w-auto">
+          <div className="w-[calc(100%/2-1.5rem)] md:w-auto">
             <h3 className="text-green-500 mb-3 font-medium">Discover</h3>
             <ul className="flex flex-col gap-2 text-sm lg:text-base">
               <li>
@@ -34,7 +34,7 @@ const Footer = () => {
               </li>
             </ul>
           </div>
-          <div className="w-[calc(100%/2-2rem)] md:w-auto">
+          <div className="w-[calc(100%/2-1.5rem)] md:w-auto">
             <h3 className="text-green-500 mb-3 font-medium">About</h3>
             <ul className="flex flex-col gap-2 text-sm lg:text-base">
               <li>
@@ -48,7 +48,7 @@ const Footer = () => {
               </li>
             </ul>
           </div>
-          <div className="w-[calc(100%/2-2rem)] md:w-auto">
+          <div className="w-[calc(100%/2-1.5rem)] md:w-auto">
             <h3 className="text-green-500 mb-3 font-medium">Info</h3>
             <ul className="flex flex-col gap-2 text-sm lg:text-base">
               <li>
