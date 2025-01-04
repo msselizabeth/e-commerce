@@ -11,3 +11,14 @@
     @apply flex-grow mx-auto container px-3 lg:px-4 xl:px-5 2xl:px-6;
   }
 }
+
+@layer components{
+  .divider{
+    position: relative;
+  }
+  .divider::before{
+    content: "";
+    @apply absolute top-5 w-[calc(100%-1.5rem)] h-0.5 border-b border-white lg:top-7 lg:w-[calc(100%-2rem)];
+  }
+
+}
