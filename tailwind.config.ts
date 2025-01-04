@@ -12,6 +12,10 @@ export default {
         "bg-primary": "#ffffff",
         "text-primary": "#1D252C",
       },
+      fontFamily: {
+        sans: ['Roboto', 'sans-serif'],
+        serif: ['Poppins', 'serif'],
+      },
     },
   },
   plugins: [],
