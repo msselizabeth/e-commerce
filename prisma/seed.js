@@ -48,7 +48,7 @@ async function main() {
       price: 9.99
     },
     {
-      productName: "Orange dream",
+      productName: "Fresh Orange",
       image: "/products-images/image5.png",
       stock: 2,
       wax: "Top grade Soy wax that delivers a smoke less, consistent burn",
@@ -60,7 +60,7 @@ async function main() {
     },
     {
       productName: "Fragrant Cinnamon",
-      image: "/products-images/image6.png",
+      image: "/products-images/image8.png",
       stock: 0,
       wax: "Top grade Soy wax that delivers a smoke less, consistent burn",
       fragrance: "Premium quality ingredients with natural essential oils ",
@@ -71,7 +71,7 @@ async function main() {
     },
     {
       productName: "Summer Cherries",
-      image: "/products-images/image6.png",
+      image: "/products-images/image7.png",
       stock: 80,
       wax: "Top grade Soy wax that delivers a smoke less, consistent burn",
       fragrance: "Premium quality ingredients with natural essential oils ",
