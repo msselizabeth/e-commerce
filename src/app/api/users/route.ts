@@ -2,26 +2,6 @@ import { NextResponse, NextRequest } from "next/server";
 import { prisma } from "../../../lib/prisma";
 import bcrypt from "bcrypt";
 
-export async function GET() {
-  try {
-    const users = await prisma.user.findMany({
-      select: {
-        id: true,
-        firstName: true,
-        lastName: true,
-        tel: true,
-        address: true,
-        postalCode: true,
-        email: true,
-      },
-    });
-
-    return NextResponse.json({ users }, { status: 200 });
-  } catch (error) {
-    console.error("Error:", error.message);
-    return NextResponse.json({ error: "Server Error" }, { status: 500 });
-  }
-}
 
 export async function POST(req: NextRequest) {
   try {
