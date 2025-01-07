@@ -23,7 +23,7 @@ export async function GET(
 
     if (!product) {
       return NextResponse.json(
-        { error: `Product with ID: ${params.id} doesn't exsist.` },
+        { error: `Product with ID: ${id} doesn't exsist.` },
         { status: 404 }
       );
     }
