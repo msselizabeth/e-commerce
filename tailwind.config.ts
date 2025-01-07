@@ -11,6 +11,7 @@ export default {
       colors: {
         "bg-primary": "#ffffff",
         "text-primary": "#1D252C",
+        "section-titles": "#0B254B"
       },
       fontFamily: {
         sans: ['Roboto', 'sans-serif'],
