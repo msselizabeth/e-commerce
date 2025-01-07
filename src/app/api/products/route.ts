@@ -1,6 +1,12 @@
 import { NextResponse, NextRequest } from "next/server";
 import { prisma } from "../../../lib/prisma";
-import { Product } from "@prisma/client";
+
+type MinimalProduct = {
+  id: string;
+  productName: string;
+  image: string | null;
+  price: number;
+};
 
 export async function GET(req: NextRequest) {
   const { searchParams } = req.nextUrl;
@@ -10,7 +16,7 @@ export async function GET(req: NextRequest) {
   const skip = (page - 1) * limit;
 
   try {
-    const products: Product[] = await prisma.product.findMany({
+    const products: MinimalProduct[] = await prisma.product.findMany({
       where: {
         productName: {
           contains: query,
