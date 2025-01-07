@@ -101,14 +101,20 @@ export async function POST(req: NextRequest) {
 
     return NextResponse.json({ user: newUser }, { status: 201 });
   } catch (error: unknown) {
-    console.log(error.message)
-    if (error.code === "P2002") {
-      return NextResponse.json(
-        {
-          error: "User with this email or number already exists",
-        },
-        { status: 400 }
-      );
+    if (error instanceof Error) {
+      
+      if (error.code === "P2002") {
+        return NextResponse.json(
+          {
+            error: "User with this email or number already exists",
+          },
+          { status: 400 }
+        );
+        console.error("Error:", error.message);
+        return NextResponse.json({ error: error.message }, { status: 500 });
+      } else {
+        return NextResponse.json({ error: error }, { status: 500 });
+      }
     }
     return NextResponse.json({ error: "Server Error" }, { status: 500 });
   }
