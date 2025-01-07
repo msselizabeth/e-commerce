@@ -4,7 +4,7 @@
 
 @layer base {
   body {
-    @apply flex flex-col min-h-screen bg-bg-primary text-text-primary text-sm md:text-base lg:text-lg ;
+    @apply flex flex-col min-h-screen bg-bg-primary text-text-primary text-sm md:text-base lg:text-lg;
     font-family: var(--font-roboto), Arial, Helvetica, sans-serif;
   }
   main {
@@ -12,13 +12,18 @@
   }
 }
 
-@layer components{
-  .divider{
+@layer components {
+  .section{
+    @apply py-10 lg:py-12;
+  }
+  .section-title {
+    @apply font-serif text-3xl font-medium lg:text-4xl text-center text-section-titles;
+  }
+  .divider {
     position: relative;
   }
-  .divider::before{
+  .divider::before {
     content: "";
     @apply absolute top-5 w-[calc(100%-1.5rem)] h-0.5 border-b border-white lg:top-7 lg:w-[calc(100%-2rem)];
   }
-
 }
