@@ -1,9 +1,8 @@
 
-const ProductPage = ({ product }) => { 
+const ProductPage = () => { 
     return (
         <div>
-        {/* <h1>{product.name}</h1>
-        <p>{product.description}</p> */}
+      
         </div>
     );
 }
