@@ -51,7 +51,7 @@ export async function GET(req: NextRequest) {
       },
       { status: 200 }
     );
-  } catch (error) {
+  } catch (error: unknown) {
     console.error("Error:", error.message);
     return NextResponse.json({ error: "Server Error" }, { status: 500 });
   }
