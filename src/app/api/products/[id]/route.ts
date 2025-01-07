@@ -30,7 +30,11 @@ export async function GET(
 
     return NextResponse.json({ product }, { status: 200 });
   } catch (error: unknown) {
-    console.error("Error:", error.message);
+    if (error instanceof Error) {
+      console.error("Error:", error.message);
+    } else {
+      console.error("Unknown error:", error);
+    }
     return NextResponse.json({ error: "Server Error" }, { status: 500 });
   }
 }
