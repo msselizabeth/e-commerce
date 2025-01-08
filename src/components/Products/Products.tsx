@@ -14,7 +14,7 @@ const Products = () => {
   const [products, setProducts] = useState<Product[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [loading, setLoading] = useState(false);
-  const [totalProducts, setTotalProducts] = useState<number>();
+  const [totalProducts, setTotalProducts] = useState<number>(0);
 
   const fetchProducts = async (page: number) => {
     try {
