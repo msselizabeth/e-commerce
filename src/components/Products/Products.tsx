@@ -32,7 +32,7 @@ const Products =  () => {
         <p className="mt-1 text-slate-400 text-center">Order it for you or for your beloved ones</p>
 
         <ul className="flex flex-col items-center justify-center gap-6 mt-5">
-            {products.map((product: Product, index: number): ReactElement => {
+            {products.map((product: Product, index: number) => {
                 return (
                     <li key={index} className="w-full h-48 items-center bg-slate-50 rounded-lg shadow overflow-hidden relative">
                       <Link href={`/products/${product.id}`}>
