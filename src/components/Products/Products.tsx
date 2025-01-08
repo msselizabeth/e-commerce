@@ -56,7 +56,7 @@ const Products = () => {
             return (
               <li
                 key={index}
-                className="w-full h-48 bg-slate-50 rounded-lg shadow overflow-hidden relative md:w-[47.5%] md:h-full lg:w-[23%] ">
+                className="w-full h-48 bg-slate-50 rounded-lg shadow hover:shadow-green-400 hover:scale-105 overflow-hidden relative md:w-[47.5%] md:h-full lg:w-[23%] transition-all duration-300">
                 <Link href={`/products/${product.id}`}>
                   <Image
                     src={product.image}
@@ -82,7 +82,7 @@ const Products = () => {
         {products.length < totalProducts && (
           <div className="flex justify-center mt-5">
             <button
-              className="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700"
+              className="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700 transition-all duration-300"
               onClick={handleLoadMore}
               disabled={loading}>
               See More
