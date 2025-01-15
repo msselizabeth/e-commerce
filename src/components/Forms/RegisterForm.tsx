@@ -124,7 +124,7 @@ export default function RegisterForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="p-4 shadow bg-slate-50 rounded-lg md:w-3/4 mx-auto">
+    <form onSubmit={handleSubmit} className=" max-w-md mx-auto p-4 shadow bg-slate-50 rounded-lg">
       <h2 className="text-2xl font-bold mb-4">Registration</h2>
 
       {[

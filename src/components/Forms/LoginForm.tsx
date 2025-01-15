@@ -65,9 +65,9 @@ export default function LoginForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="max-w-md mx-auto p-6 bg-white shadow-md rounded-lg"
+      className="max-w-md mx-auto p-6 bg-slate-50 shadow rounded-lg " 
     >
-      <h2 className="text-2xl font-bold mb-4">Вход в систему</h2>
+      <h2 className="text-2xl font-bold mb-4">Login</h2>
 
       <div className="mb-4">
         <label htmlFor="email" className="block text-sm font-medium mb-2">
@@ -86,7 +86,7 @@ export default function LoginForm() {
 
       <div className="mb-4">
         <label htmlFor="password" className="block text-sm font-medium mb-2">
-          Пароль
+          Password
         </label>
         <input
           id="password"
@@ -99,12 +99,13 @@ export default function LoginForm() {
         />
       </div>
 
-      <button
+      <div className="w-full md:w-48 md:mx-auto">  
+     <button
         type="submit"
-        className="w-full bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition"
-      >
-        Войти
+        className="w-full  bg-emerald-500 text-white px-4 py-2 rounded-md hover:bg-emerald-700 transition font-medium uppercase">
+        log In
       </button>
+      </div>
     </form>
   );
 }
