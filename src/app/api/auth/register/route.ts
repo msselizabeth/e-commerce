@@ -7,7 +7,7 @@ import { Prisma } from "@prisma/client";
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
-    console.log(body);
+    // console.log(body);
     const { firstName, lastName, tel, address, postalCode, email, password } =
       body;
     const errors: string[] = [];
@@ -83,19 +83,18 @@ export async function POST(req: NextRequest) {
 
     return NextResponse.json({ user: newUser }, { status: 201 });
   } catch (error: unknown) {
-    console.log(error.message);
-    if (error instanceof Prisma.PrismaClientKnownRequestError && error.code === "P2002") {
+    if (error instanceof Prisma.PrismaClientKnownRequestError) {
+      if (error.code === "P2002") {
         return NextResponse.json(
           {
-            error: "User with this email or number already exists",
+            message: "A user with this email or number already exists.",
           },
           { status: 400 }
         );
       }
-
-      if (error instanceof Prisma.PrismaClientKnownRequestError){
-        console.log(error.message);
-      }
+    }
+  
+    console.error("Unexpected Error:", error);
     return NextResponse.json({ error: "Server Error" }, { status: 500 });
   }
 }
