@@ -34,9 +34,9 @@ const Header = () => {
         </ul>
       </nav>
       <div className="flex gap-3">
-        <button type="button" aria-label="user button">
+        <Link href="/login" aria-label="user button">
           <RiUserLine size={26} />
-        </button>
+        </Link>
         <button type="button" aria-label="shopping cart button">
           <RiShoppingCart2Line size={26} />
         </button>

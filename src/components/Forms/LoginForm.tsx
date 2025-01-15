@@ -3,6 +3,7 @@ import { useState } from "react";
 import { signIn } from "next-auth/react";
 import { toast } from "react-toastify";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 interface LoginFormState {
   email: string;
@@ -106,6 +107,8 @@ export default function LoginForm() {
         log In
       </button>
       </div>
+
+      <Link href="/register" className="block pt-5 text-center text-teal-400">Don&apos;t have an accont?</Link>
     </form>
   );
 }

@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
+import Link from "next/link";
 
 interface SignUpFormState {
   firstName: string;
@@ -165,6 +166,8 @@ export default function RegisterForm() {
         Sign Up
       </button>
         </div>
+
+        <Link href="/login" className="block pt-5 text-center text-teal-400">Already have an account?</Link>
     </form>
   );
 }
