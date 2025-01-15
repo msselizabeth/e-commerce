@@ -32,10 +32,6 @@ export async function GET(req: NextRequest) {
       take: limit,
     });
 
-    if (products.length === 0) {
-      return NextResponse.json({ error: "No products found." }, { status: 404 });
-    }
-
     const totalProducts = await prisma.product.count({
       where: {
         productName: {
