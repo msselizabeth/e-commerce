@@ -22,6 +22,7 @@ export const authOptions: NextAuthOptions = {
           where: { email: credentials.email },
         });
 
+
         if (!user) {
           throw new Error("No user found with the given email");
         }
@@ -35,7 +36,15 @@ export const authOptions: NextAuthOptions = {
           throw new Error("Invalid email or password");
         }
 
-        return { id: user.id, name: user.firstName, email: user.email };
+        return {
+          id: user.id,
+          firstName: user.firstName,
+          lastName: user.lastName,
+          email: user.email,
+          address: user.address,
+          postalCode: user.postalCode,
+          tel: user.tel,
+        };
       },
     }),
   ],
@@ -46,9 +55,16 @@ export const authOptions: NextAuthOptions = {
   debug: true,
   callbacks: {
     async jwt({ token, user }) {
+      console.log("User in JWT callback:", user); // Для отладки
+  console.log("Token in JWT callback:", token);
       if (user) {
         token.id = user.id;
         token.firstName = user.firstName;
+        token.lastName = user.lastName;
+        token.email = user.email;
+        token.address = user.address;
+        token.postalCode = user.postalCode;
+        token.tel = user.tel;
       }
       return token;
     },
@@ -56,6 +72,11 @@ export const authOptions: NextAuthOptions = {
       if (token) {
         session.user.id = token.id as number;
         session.user.firstName = token.firstName as string;
+        session.user.lastName = token.lastName as string;
+        session.user.email = token.email as string;
+        session.user.address = token.address as string;
+        session.user.postalCode = token.postalCode as string;
+        session.user.tel = token.tel as string;
       }
       return session;
     },
