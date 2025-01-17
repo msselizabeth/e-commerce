@@ -1,5 +1,5 @@
 import { NextResponse, NextRequest } from "next/server";
-import { prisma } from "../../../lib/prisma";
+import { prisma } from "../../../../lib/prisma";
 import bcrypt from "bcrypt";
 import { Prisma } from "@prisma/client";
 
@@ -7,6 +7,7 @@ import { Prisma } from "@prisma/client";
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
+    // console.log(body);
     const { firstName, lastName, tel, address, postalCode, email, password } =
       body;
     const errors: string[] = [];
@@ -36,9 +37,9 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    const postalCodeRegex = /^\d{6}$/;
+    const postalCodeRegex = /^[A-Za-z0-9]{6}$/;
     if (!postalCodeRegex.test(postalCode)) {
-      errors.push("The postal code must be 6 digits long.");
+      errors.push("The postal code must be exactly 6 characters long and contain only letters and numbers.");
     }
 
     const phoneRegex =
@@ -82,14 +83,18 @@ export async function POST(req: NextRequest) {
 
     return NextResponse.json({ user: newUser }, { status: 201 });
   } catch (error: unknown) {
-    if (error instanceof Prisma.PrismaClientKnownRequestError && error.code === "P2002") {
+    if (error instanceof Prisma.PrismaClientKnownRequestError) {
+      if (error.code === "P2002") {
         return NextResponse.json(
           {
-            error: "User with this email or number already exists",
+            message: "A user with this email or number already exists.",
           },
           { status: 400 }
         );
       }
+    }
+  
+    console.error("Unexpected Error:", error);
     return NextResponse.json({ error: "Server Error" }, { status: 500 });
   }
 }

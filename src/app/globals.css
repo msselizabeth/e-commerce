@@ -27,3 +27,15 @@
     @apply absolute top-5 w-[calc(100%-1.5rem)] h-0.5 border-b border-white lg:top-7 lg:w-[calc(100%-2rem)];
   }
 }
+
+
+.Toastify__toast-container--top-center {
+  top: 40% !important;
+  left: 50% !important;
+  
+  transform: translate(-50%, -50%) !important;
+}
+.Toastify__toast {
+  height: 8rem;
+  font-size: 1.125rem;
+}
