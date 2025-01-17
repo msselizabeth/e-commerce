@@ -1,7 +1,8 @@
-import { NextAuthOptions } from "next-auth";
+
+import { NextAuthOptions } from "next-auth/index";
 import CredentialsProvider from "next-auth/providers/credentials";
 import { prisma } from "./prisma";
-import { PrismaAdapter } from "@auth/prisma-adapter";
+import { PrismaAdapter } from "@next-auth/prisma-adapter";
 import bcrypt from "bcrypt";
 
 export const authOptions: NextAuthOptions = {
@@ -26,28 +27,23 @@ export const authOptions: NextAuthOptions = {
           throw new Error("No user found with the given email");
         }
 
-        const isValid = await bcrypt.compare(credentials.password, user.password);
+        const isValid = await bcrypt.compare(
+          credentials.password,
+          user.password
+        );
 
         if (!isValid) {
           throw new Error("Invalid email or password");
         }
 
-        return {
-          id: user.id,
-          firstName: user.firstName,
-          lastName: user.lastName,
-          email: user.email,
-          address: user.address,
-          postalCode: user.postalCode,
-          tel: user.tel,
-        };
+        return user;
       },
     }),
   ],
   session: {
     strategy: "jwt",
   },
-  secret: process.env.AUTH_SECRET,
+  secret: process.env.NEXTAUTH_SECRET,
   callbacks: {
     async jwt({ token, user }) {
       if (user) {
@@ -67,7 +63,7 @@ export const authOptions: NextAuthOptions = {
         session.user.firstName = token.firstName as string;
         session.user.lastName = token.lastName as string;
         session.user.email = token.email as string;
-        session.user.address = token.address as string;
+        session.user.address = token.address as string; 
         session.user.postalCode = token.postalCode as string;
         session.user.tel = token.tel as string;
       }

@@ -3,12 +3,24 @@ import { redirect } from "next/navigation";
 import { authOptions } from "../../lib/authOptions";
 import LogoutButton from "@/components/Logout";
 
+interface Session {
+  user: {
+    id: string;
+    firstName: string;
+    lastName: string;
+    email: string;
+    address?: string;
+    postalCode?: string;
+    tel?: string;
+  };
+}
+
 export default async function User(){
-    const session = await getServerSession(authOptions);
+    const session: Session | null = await getServerSession(authOptions);
     if (!session) {
         redirect("/login");
       }
-    const user = session.user;
+    const user = session?.user || null;
 
 
 

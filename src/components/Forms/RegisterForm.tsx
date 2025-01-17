@@ -13,6 +13,15 @@ interface SignUpFormState {
   email: string;
   password: string;
 }
+interface ErrorsFormState {
+  firstName?: string;
+  lastName?: string;
+  tel?: string;
+  address?: string;
+  postalCode?: string;
+  email?: string;
+  password?: string;
+}
 
 export default function RegisterForm() {
   const [formData, setFormData] = useState<SignUpFormState>({
@@ -24,11 +33,11 @@ export default function RegisterForm() {
     email: "",
     password: "",
   });
-  const [errors, setErrors] = useState({});
+  const [errors, setErrors] = useState<ErrorsFormState>({});
   const router = useRouter();
 
   const validateForm = (): boolean => {
-    const newErrors = {};
+    const newErrors: ErrorsFormState = {};
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(formData.email)) {
@@ -78,7 +87,7 @@ export default function RegisterForm() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setErrors([]);
+    setErrors({});
 
     if (!validateForm()) {
       return;
@@ -93,7 +102,7 @@ export default function RegisterForm() {
       });
 
       if (!response.ok) {
-        const errorData = await response.json(); 
+        const errorData = await response.json();
         throw new Error(errorData.message || "Registration error");
       }
 
@@ -125,7 +134,9 @@ export default function RegisterForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit} className=" max-w-md mx-auto p-4 shadow bg-slate-50 rounded-lg">
+    <form
+      onSubmit={handleSubmit}
+      className=" max-w-md mx-auto p-4 shadow bg-slate-50 rounded-lg">
       <h2 className="text-2xl font-bold mb-4">Registration</h2>
 
       {[
@@ -151,23 +162,25 @@ export default function RegisterForm() {
             className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring focus:ring-emerald-300"
             required
           />
-          {(errors[field.name] as keyof SignUpFormState) && (
+         {errors[field.name as keyof ErrorsFormState] && (
             <p className="text-red-600 font-medium text-sm pt-2">
-              {errors[field.name]}
+              {errors[field.name as keyof ErrorsFormState]}
             </p>
           )}
         </div>
       ))}
 
-     <div className="w-full md:w-48 md:mx-auto">  
-     <button
-        type="submit"
-        className="w-full  bg-emerald-500 text-white px-4 py-2 rounded-md hover:bg-emerald-700 transition font-medium uppercase">
-        Sign Up
-      </button>
-        </div>
+      <div className="w-full md:w-48 md:mx-auto">
+        <button
+          type="submit"
+          className="w-full  bg-emerald-500 text-white px-4 py-2 rounded-md hover:bg-emerald-700 transition font-medium uppercase">
+          Sign Up
+        </button>
+      </div>
 
-        <Link href="/login" className="block pt-5 text-center text-teal-400">Already have an account?</Link>
+      <Link href="/login" className="block pt-5 text-center text-teal-400">
+        Already have an account?
+      </Link>
     </form>
   );
 }
